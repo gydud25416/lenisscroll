@@ -22,12 +22,12 @@ export default function Home() {
       sectionRef.current, // Gsap 애니메이션이 시작되는 요소 위치
       { translateX: 0 }, // from 부분(초기 시작)
       {
-        translateX: -4000, // to 부분
+        translateX: -6000, // to 부분
         ease: "none", // 쓸데없는 애니메이션 없애는 부분
         scrollTrigger: { // 스크롤 애니메이션 발생하는 부분
           trigger: triggerRef.current, // 스크롤이 발생되는 요소 위치
           start: "top top", // "요소위치 시작위치"
-          end: "+=4000", // "요소위치 끝위치"
+          end: "+=8000", // "요소위치 끝위치"
           scrub: 0.7, // 되감기 기능, 또한 스크롤을 부드러운 애니메이션 추가.
           pin: "#port", // 가로스크롤시 페이지를 고정할 수 있는 기능
         },
@@ -43,24 +43,22 @@ export default function Home() {
     }, []); 
     const headerRef = useRef(null); 
    
-    // 스크롤 이벤트 핸들러
-    const handleScroll = () => {
-      const scrollY = window.scrollY; // 스크롤 위치
-      const headerWrap = document.querySelector('#header'); // 헤더 요소
-
-      if (scrollY >= 1500) {
-          // 스크롤 위치가 100px 이상이면
-          // 헤더 요소의 배경색을 검정색으로 변경
-          gsap.to(headerWrap, { left: '30px', duration: 1 });
-      } else {
-          // 스크롤 위치가 100px 미만이면
-          // 헤더 요소의 배경색을 투명으로 변경
-          gsap.to(headerWrap, { left: '-30px', duration: 1 });
-      }
-  };
-
-  // 이벤트 리스너 등록
-  window.addEventListener('scroll', handleScroll);
+    useEffect(() => {
+      gsap.fromTo(headerRef.current,
+        { left: '-30px' },
+        {
+          left: '30px',
+          duration: 1,
+          scrollTrigger: {
+            trigger: welcomeRef.current,
+            start: '2000px', // 애니메이션 시작 위치
+            end: '+=500', // 애니메이션 종료 위치
+            scrub: true // 스크롤과 함께 애니메이션 동기화
+          }
+        }
+      );
+    }, []);
+ 
 
   return (
     <>
@@ -72,11 +70,9 @@ export default function Home() {
           <section ref={sectionRef}>
             
             <div className="scroll_wrap" > 
-              <Intro />
-              
+              <Intro /> 
               <main id="main" role="main" > 
-              <div className="wrap_welcome"   ref={welcomeRef}  >
-           
+              <div className="wrap_welcome"   ref={welcomeRef}  > 
                     어서오세요
               </div> 
                   <Skill /> 
