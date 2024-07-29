@@ -125,8 +125,8 @@ background-color:#bbb;
 .header_nav_mobile{display: none;}
 
 /* 헤더 */
-#header{position:fixed; width:100vh;  border: 1px dashed #333; transform-origin: top left;  transform:rotate(-90deg); transition:0.5s; bottom:-30px;  left:-30px;   } 
-.wrap_header{position:absolute; width:100vh; left:1500px; transition:0.5s; transform-origin: top left;  transform:rotate(-90deg); bottom:-30px;   } 
+#header{position:fixed;bottom:-30px;  left:-30px;  width:100vh;  border: 1px dashed #333; transform-origin: top left;  transform:rotate(-90deg);  z-index: 9999;   } 
+.wrap_header{position:absolute; width:100vh; left:1400px; transition:0.5s; transform-origin: top left;  transform:rotate(-90deg); bottom:-30px;   } 
 
 .header_inner{display: flex;height:30px; max-width: 90%; margin:0 auto;   justify-content: space-between; border-bottom:solid 1px #333;}
 .header_nav ul{display: flex;}

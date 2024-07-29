@@ -4,17 +4,17 @@ import Header from "@/components/Header";
 import Intro from "@/components/Intro";
 import Skill from "@/components/Skill"; 
 import Work from "@/components/Work";
-import Contact from "@/components/Contact";
-import Skip from "@/components/Skip"; 
+import Contact from "@/components/Contact"; 
 import lenis from "@/utils/lenis";
 import link from "@/utils/link";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger"; 
+import { ScrollTrigger } from "gsap/ScrollTrigger";  
 
 export default function Home() { 
   gsap.registerPlugin(ScrollTrigger); // ScrollTrigger시 필수
   const sectionRef = useRef(null); // useRef로 참조할 요소
   const triggerRef = useRef(null);
+  const welcomeRef = useRef(null);
 
   // horizontal 스크롤 애니메이션
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function Home() {
           scrub: 0.7, // 되감기 기능, 또한 스크롤을 부드러운 애니메이션 추가.
           pin: "#port", // 가로스크롤시 페이지를 고정할 수 있는 기능
         },
-      }
+      } 
     );
     return () => {
       pin.kill(); // 모든 애니메이션 중단
@@ -41,18 +41,44 @@ export default function Home() {
         lenis();
         link();
     }, []); 
+    const headerRef = useRef(null); 
+   
+    // 스크롤 이벤트 핸들러
+    const handleScroll = () => {
+      const scrollY = window.scrollY; // 스크롤 위치
+      const headerWrap = document.querySelector('#header'); // 헤더 요소
+
+      if (scrollY >= 1500) {
+          // 스크롤 위치가 100px 이상이면
+          // 헤더 요소의 배경색을 검정색으로 변경
+          gsap.to(headerWrap, { left: '30px', duration: 1 });
+      } else {
+          // 스크롤 위치가 100px 미만이면
+          // 헤더 요소의 배경색을 투명으로 변경
+          gsap.to(headerWrap, { left: '-30px', duration: 1 });
+      }
+  };
+
+  // 이벤트 리스너 등록
+  window.addEventListener('scroll', handleScroll);
 
   return (
+    <>
+    <header id="header" role="banner"   ref={headerRef} >
+    <Header />
+  </header>
       <div id="port" ref={triggerRef}>
           {/* <Skip /> */}
           <section ref={sectionRef}>
-            <header id="header" role="banner" >
-                <Header />
-              </header>
+            
             <div className="scroll_wrap" > 
               <Intro />
               
               <main id="main" role="main" > 
+              <div className="wrap_welcome"   ref={welcomeRef}  >
+           
+                    어서오세요
+              </div> 
                   <Skill /> 
                   <Work />
                   <Contact />
@@ -60,5 +86,7 @@ export default function Home() {
             </div>
           </section>
       </div>
+      </>
   );
+
 } 

@@ -10,11 +10,7 @@ export default function Intro(){
             </div>
             <div className="wrap_header">
                 <Header />
-            </div>
-            <div className="wrap_welcome">
-                어서오세요
-            </div>
-
+            </div> 
         </div>
     )
 }
