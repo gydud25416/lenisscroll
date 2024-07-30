@@ -3,6 +3,6 @@ import React from "react";
 export default function Work(){
 
     return(
-        <div className="wrap_work">Work</div>
+        <div id="work" className="wrap_work">Work</div>
     )
 }

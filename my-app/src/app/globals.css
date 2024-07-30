@@ -43,6 +43,26 @@ figcaption {
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+    font-family: 'ONE-Mobile-Title';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Title.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ONE-Mobile-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BodoniFLF';
+    src: url(../../public/fonts/BodoniFLF-Bold.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* // 폰트 초기화 */
 body,
 button,
@@ -86,7 +106,7 @@ strong {
 
 img {
     vertical-align: top;
-    width: 100%;
+    width: auto;
 }
 
 /* 스크롤바 전체 영역 */
@@ -125,36 +145,60 @@ background-color:#bbb;
 .header_nav_mobile{display: none;}
 
 /* 헤더 */
-#header{position:fixed;bottom:-30px;  left:-30px;  width:100vh;  border: 1px dashed #333; transform-origin: top left;  transform:rotate(-90deg);  z-index: 9999;   } 
-.wrap_header{position:absolute; width:100vh; left:1400px; transition:0.5s; transform-origin: top left;  transform:rotate(-90deg); bottom:-30px;   } 
+#header{position:fixed; bottom:-70px;  left:-70px;  width:100vh;  transform-origin: top left;  transform:rotate(-90deg);  z-index: 9999; border-bottom:solid 1px #333;  } 
+.wrap_header{position:absolute; width:100vh; bottom:-70px;left:115vh; transition:0.5s; transform-origin: top left;  transform:rotate(-90deg);  border-bottom:solid 1px #333;   } 
 
-.header_inner{display: flex;height:30px; max-width: 90%; margin:0 auto;   justify-content: space-between; border-bottom:solid 1px #333;}
-.header_nav ul{display: flex;}
+.header_inner{position:relative; display: flex; height:70px; max-width: 95%; margin:0 auto;   justify-content: space-between;   align-items: flex-end; padding-bottom:8px;  background: #fff;}
+.header_inner .header_logo{position:absolute; left:50%;}
+.header_inner a{font-size: 22px; font-weight: 100;}
+.header_nav ul{display: flex; gap:15px;}
 
 
 
-/* intro */
+/* intro */ 
 .wrap_intro{display: flex;}
-.wrap_intro .wrap_home {width:1500px;}
+.wrap_intro .wrap_home {width:120vh; position:relative;}
+.wrap_intro .wrap_home>img{position:absolute;}
+.wrap_intro .wrap_home .home_hy{ top:2%; left:1%}
+.wrap_intro .wrap_home .ellipse1{top:35%; left:17%}
+.wrap_intro .wrap_home .ellipse2{top:50%; left:55%}
+.wrap_intro .wrap_home .polygon1{bottom:5%; left:28%}
+.wrap_intro .wrap_home .polygon2{top:13%; left:28%}
+.wrap_intro .wrap_home .rectangle2{top:13%; left:65%}
+.wrap_intro .wrap_home .rectangle3{bottom:13%; left:60%}
+.wrap_intro .wrap_home>p{font-family: 'ONE-Mobile-Regular'; position:absolute; bottom:2%; font-size: 58px; left:1%;}
+.wrap_intro .wrap_home>p span {font-family: 'One-mobile-Title'}
 
 /* main */
 #main { display: flex;}
 #main>div{width:1500px; border:1px dashed #333; box-sizing: border-box;}
 
+/* WELCOME */
+#main .wrap_welcome{position:relative; width:250vh}
+.wrap_welcome div>p{font-family: "BodoniFLF"; font-size: 18vh; position:absolute; overflow-x: visible ;  overflow-y:hidden; }
+.wrap_welcome div>p:nth-child(1){top:20%; left:10%; width:70%;}
+.wrap_welcome div>p:nth-child(2){top:40%; left:30%; width:50%;}
+.wrap_welcome div>p:nth-child(3){top:60%; left:5%; width:80%;}
+.wrap_welcome div>p>span{position:relative; top:18vh;}
 
-/* port */
+/* port */ 
+#port { background:#fff; z-index: 888;}
 
-#port {background:#efefef; z-index: 888;}
-
-/* wokr */
-#main .wrap_work, .wrap_work{width:calc(100vw - 8px); min-height: 3000px; background:pink; border:2px dashed red; box-sizing: border-box;}
+/* work */
+#main .wrap_work, .wrap_work{width:calc(100vw - 8px); min-height: 3000px;  border:2px dashed red; box-sizing: border-box; position:relative;  z-index: -1;}
 
  
 /* contact */
-.wrap_contact{width:calc(100vw - 8px); min-height: 100vh; background:lightblue; }
+.wrap_contact{width:calc(100vw - 8px); min-height: 100vh;  }
 
 /* second_scroll */
 .second_scroll{/*transform:translateY(-100vh);*/position:relative; top:-100vh; z-index: -1; height: 0 }
 
+/* title */
+#main .wrap_title{position:absolute; width:90vh; bottom:calc(50vh - 22px); left:-50vh;   transform-origin: center center;  transform:rotate(-90deg);  border-bottom:solid 1px #333; text-align: center;}
+#main .wrap_title p {padding-bottom:20px; font-size: 18px;}
+
+/* about */
+.wrap_about{position:relative; padding:20px;}
 
 
