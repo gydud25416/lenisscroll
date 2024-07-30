@@ -144,4 +144,17 @@ background-color:#bbb;
 
 /* port */
 
-#port{width:7000px; background:#efefef;}
+#port {background:#efefef; z-index: 888;}
+
+/* wokr */
+#main .wrap_work, .wrap_work{width:calc(100vw - 8px); min-height: 3000px; background:pink; border:2px dashed red; box-sizing: border-box;}
+
+ 
+/* contact */
+.wrap_contact{width:calc(100vw - 8px); min-height: 100vh; background:lightblue; }
+
+/* second_scroll */
+.second_scroll{/*transform:translateY(-100vh);*/position:relative; top:-100vh; z-index: -1; height: 0 }
+
+
+
