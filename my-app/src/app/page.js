@@ -30,29 +30,9 @@ export default function Home() {
   const triggerRef = useRef(null);
   const welcomeRef = useRef(null);
   const workRef = useRef(null);
-  const contackRef = useRef(null);
-
-  // horizontal 스크롤 애니메이션
-  useEffect(() => {
-    const pin = gsap.fromTo( // from, to, fromTo가 있다.
-      sectionRef.current, // Gsap 애니메이션이 시작되는 요소 위치
-      { translateX: 0 }, // from 부분(초기 시작)
-      {
-        translateX: -6000, // to 부분, 최종 상태
-        ease: "none", // 쓸데없는 애니메이션 없애는 부분
-        scrollTrigger: { // 스크롤 애니메이션 발생하는 부분
-          trigger: triggerRef.current, // 스크롤이 발생되는 요소 위치
-          start: "top top", // "요소위치 시작위치"
-          end: "3000vh", // "요소위치 끝위치"
-          scrub: 0.7, // 되감기 기능, 또한 스크롤을 부드러운 애니메이션 추가.
-          pin: "#port", // 가로스크롤시 페이지를 고정할 수 있는 기능
-        },
-      } 
-    );
-    return () => {
-      pin.kill(); // 모든 애니메이션 중단
-    };
-  }, []);
+  const contactRef = useRef(null);
+  const secondRef = useRef(null);
+ 
     useEffect(() => {
         lenis();
         link();
@@ -80,24 +60,44 @@ export default function Home() {
     }
     }, [introWidth]);
  
-   
+     // horizontal 스크롤 애니메이션
     useEffect(()=>{
-      const pin2 = gsap.fromTo(contackRef.current,
+      const pin = gsap.fromTo( // from, to, fromTo가 있다.
+        sectionRef.current, // Gsap 애니메이션이 시작되는 요소 위치
+        { translateX: 0 }, // from 부분(초기 시작)
+        {
+          translateX: -4840, // to 부분, 최종 상태
+          ease: "none", // 쓸데없는 애니메이션 없애는 부분
+          scrollTrigger: { // 스크롤 애니메이션 발생하는 부분
+            trigger: triggerRef.current, // 스크롤이 발생되는 요소 위치
+            start: "top top", // "요소위치 시작위치"
+            end: "+=4840", // "요소위치 끝위치"
+            scrub: 0.7, // 되감기 기능, 또한 스크롤을 부드러운 애니메이션 추가.
+            pin: "#port", // 가로스크롤시 페이지를 고정할 수 있는 기능
+          },
+        } 
+      );
+
+      const pin2 = gsap.fromTo(contactRef.current,
         {position:"fixed", left:"100%", top:0 },
         {
-          position:"fixed", left:0, // to 부분, 최종 상태
+          translateX: -contactRef.current.offsetWidth, // to 부분, 최종 상태
         ease: "none", // 쓸데없는 애니메이션 없애는 부분
         scrollTrigger: { // 스크롤 애니메이션 발생하는 부분
           trigger: workRef.current, // 스크롤이 발생되는 요소 위치
           start: "bottom bottom", // "요소위치 시작위치"
-          end: "bottom top", // "요소위치 끝위치"
+          end: ()=> `bottom+=${contactRef.current.offsetWidth}px bottom`, // "요소위치 끝위치"
           scrub: 0.7, // 되감기 기능, 또한 스크롤을 부드러운 애니메이션 추가.
           pin: workRef.current, // 가로스크롤시 페이지를 고정할 수 있는 기능
+          markers:true
         } 
         }
       )
+ 
       return () => {
+        pin.kill(); // 모든 애니메이션 중단
         pin2.kill(); // 모든 애니메이션 중단
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       };
     },[]);
     
@@ -118,19 +118,21 @@ export default function Home() {
                   <About/>
                   
                   <Work />
-                  <Skill /> 
+                  
               </main> 
             </div>
           </section>
           
       </div>
-          <section  className="second_scroll" >
+          <section  className="second_scroll" ref={secondRef} >
             <div ref={workRef}>
-              <Work   />
+              <Work />
             </div>
-            <div ref={contackRef}>
+            <div className="contact_box" ref={contactRef}>
+              <Skill /> 
               <Contact />
             </div>
+            
           </section>
           
       </>
