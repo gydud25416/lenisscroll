@@ -198,7 +198,7 @@ background-color:#bbb;
 .wrap_about{position:relative; margin-left:150px; padding:20px;}
 #main .wrap_about {width:1500px;}
 #main .wrap_about .contents {display: flex;  }
-#main .wrap_about .contents>div {width:50%;}
+#main .wrap_about .contents>div {width:84vh;}
 
 
 /* about/swiper */
@@ -244,7 +244,7 @@ background-color:#bbb;
 #main .wrap_about .text_box>div .me{text-align: right}
 
 /* work */
-#main .wrap_work, .wrap_work{width:calc(100vw - 8px);  box-sizing: border-box; position:relative;  z-index: -1;}
+#main .wrap_work, .wrap_work{width:calc(100vw - 8px);  box-sizing: border-box; position:relative;  z-index: 0;}
 
 .wrap_work>section {display: flex; justify-content: space-between; padding:80px; }
 .wrap_work>section>div{width:48%;}
