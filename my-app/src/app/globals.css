@@ -38,6 +38,12 @@ figcaption {
     padding: 0;
 }
 @font-face {
+    font-family: 'JalnanGothic';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
   font-family: 'SUIT-Regular';
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
   font-weight: normal;
@@ -200,5 +206,51 @@ background-color:#bbb;
 
 /* about */
 .wrap_about{position:relative; padding:20px;}
+#main .wrap_about {width:35%;}
+#main .wrap_about .contents {display: flex;  }
+#main .wrap_about .contents>div {width:50%;}
+
+
+/* about/swiper */
+.swiper {
+  width: 65%; 
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  width:100% !important;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;  
+  object-fit: cover; 
+  width:100%;
+} 
+#main .wrap_about .swiper_about { position:relative;}
+#main .wrap_about p{ font-size: 22px; font-weight: 100; padding-top:30px;}
+#main .wrap_about p>span{font-weight: 600;}
+
+#main .wrap_about .swiper-navigation {position:absolute; top:40%;   z-index: 999; width:100%;}
+#main .wrap_about .swiper-navigation button{background:#fff; border:0; border-radius: 50%; width:140px; height:140px; font-family: 'JalnanGothic'; font-size: 32px; cursor: pointer;  position:absolute; top:0%;}
+#main .wrap_about .swiper-navigation .swiper_next { right:60px;  }
+#main .wrap_about .swiper-navigation .swiper_prev{ left:60px;}
+
+#main .wrap_about .text_box{display: flex; flex-direction: column; align-items: center; justify-content: center; transform:translateY(50px)}
+
+#main .wrap_about .text_box h1{font-size: 64px; font-weight: 700; padding-bottom:70px;}
+
+#main .wrap_about .text_box>div {display: flex; gap:80px; padding-bottom:70px;}
+
+#main .wrap_about .text_box>div ul li{padding-bottom:30px; font-size: 24px;}
+
+#main .wrap_about .text_box>div .about{text-align: left}
+#main .wrap_about .text_box>div .me{text-align: right}
 
 
