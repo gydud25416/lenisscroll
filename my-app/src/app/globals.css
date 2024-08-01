@@ -244,7 +244,7 @@ background-color:#bbb;
 #main .wrap_about .text_box>div .me{text-align: right}
 
 /* work */
-#main .wrap_work, .wrap_work{width:calc(100vw - 8px);  box-sizing: border-box; position:relative;  z-index: 0;}
+#main .wrap_work, .wrap_work{width:calc(100vw - 8px);  box-sizing: border-box; position:relative;  z-index: 0; background:#fff;}
 
 .wrap_work>section {display: flex; justify-content: space-between; padding:80px; }
 .wrap_work>section>div{width:48%;}
