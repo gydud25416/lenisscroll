@@ -12,4 +12,5 @@ GSAP과 Scrolltrigger를 사용하여 다양한 이벤트를 구현했습니다.
  - 프로젝트를 빌드합니다. `npm run build`
  - 프로젝트를 테스트합니다. `npm run start`
  - vercel을 설치합니다. `npm i -g vercel`
+ - vercel 실행 `vercel`
 
