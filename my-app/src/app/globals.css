@@ -244,7 +244,8 @@ background-color:#bbb;
 #main .wrap_about .text_box>div .me{text-align: right}
 
 /* work */
-#main .wrap_work, .wrap_work{width:calc(100vw - 8px);  box-sizing: border-box; position:relative;  z-index: 0; background:#fff;}
+#main .wrap_work, .wrap_work{width:calc(100vw - 8px);  box-sizing: border-box; position:relative;  z-index: 1; background:#fff;}
+#main .wrap_work {z-index: -1}
 
 .wrap_work>section {display: flex; justify-content: space-between; padding:80px; }
 .wrap_work>section>div{width:48%;}
@@ -271,7 +272,10 @@ background-color:#bbb;
 .wrap_skill .skills li:first-child .cursor{display: block;}
 
 /* contact */
-.wrap_contact{width:calc(100vw - 208px); min-height: 100vh; position:relative; padding:55px 0 55px 100px; }
+.wrap_contact{width:1500px; min-height: 100vh; position:relative; padding:55px 0 55px 100px; }
+@media screen and (max-width:1350px) {
+    .wrap_contact{width:1300px;}
+}
 .wrap_contact .contact_flex{display: flex; height:100%; }
 .wrap_contact .contact_flex>div{ width:50%;   box-sizing: border-box;  }
 .wrap_contact .contact_flex .info{ display: flex; flex-direction: column; justify-content: space-between;}

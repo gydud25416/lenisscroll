@@ -12,7 +12,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import About from "@/components/About";
 import Welcome from "@/components/Welcome";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Home() { 
+  
   const [introWidth, setIntroWidth] = useState(0); 
     useEffect(()=>{
       if(introWidth){
@@ -29,7 +32,8 @@ export default function Home() {
   const sectionRef = useRef(null); // useRef로 참조할 요소
   const triggerRef = useRef(null);
   const welcomeRef = useRef(null);
-  const workRef = useRef(null);
+  const firstWorkRef = useRef(null); // 첫 번째 Work 컴포넌트를 참조하는 ref
+  const secondWorkRef = useRef(null); // 두 번째 Work 컴포넌트를 참조하는 ref
   const contactRef = useRef(null);
   const secondRef = useRef(null);
  
@@ -59,7 +63,9 @@ export default function Home() {
       }
     }
     }, [introWidth]);
- 
+
+
+
      // horizontal 스크롤 애니메이션
     useEffect(()=>{
       const pin = gsap.fromTo( // from, to, fromTo가 있다.
@@ -74,30 +80,71 @@ export default function Home() {
             end: "+=4840", // "요소위치 끝위치"
             scrub: 0.7, // 되감기 기능, 또한 스크롤을 부드러운 애니메이션 추가.
             pin: "#port", // 가로스크롤시 페이지를 고정할 수 있는 기능
+
           },
         } 
-      );
-
-      const pin2 = gsap.fromTo(contactRef.current,
-        {position:"fixed", left:"100%", top:0 },
+      ); 
+      const pin0 = gsap.fromTo(
+        triggerRef.current,
+        { display: "block" },
         {
-          translateX: -contactRef.current.offsetWidth, // to 부분, 최종 상태
-        ease: "none", // 쓸데없는 애니메이션 없애는 부분
-        scrollTrigger: { // 스크롤 애니메이션 발생하는 부분
-          trigger: workRef.current, // 스크롤이 발생되는 요소 위치
-          start: "bottom bottom", // "요소위치 시작위치"
-          end: ()=> `bottom+=${contactRef.current.offsetWidth}px bottom`, // "요소위치 끝위치"
-          scrub: 0.7, // 되감기 기능, 또한 스크롤을 부드러운 애니메이션 추가.
-          pin: workRef.current, // 가로스크롤시 페이지를 고정할 수 있는 기능
-          markers:false
-        } 
+          display: "none", // to 부분의 최종 상태를 "block"으로 설정
+          ease: "none",
+          scrollTrigger: {
+            trigger: triggerRef.current,
+            start: "top top",
+            end: "+=1",
+            onLeave: () => gsap.set(triggerRef.current, { display: "none" }),
+            onEnterBack: () => gsap.set(triggerRef.current, { display: "block" }),
+            markers: true,
+          },
         }
-      )
+      );
  
+
+      ScrollTrigger.matchMedia({
+        "(min-width:1350px)":function(){
+          gsap.fromTo(contactRef.current,
+            {position:"fixed", left:"100%", top:0 },
+            {
+              translateX: -2700, // to 부분, 최종 상태
+            ease: "none", // 쓸데없는 애니메이션 없애는 부분
+            scrollTrigger: { // 스크롤 애니메이션 발생하는 부분
+              trigger: secondWorkRef.current, // 스크롤이 발생되는 요소 위치
+              start: "bottom bottom", // "요소위치 시작위치"
+              end: ()=> `+=2700`, // "요소위치 끝위치"
+              scrub: 0.7, // 되감기 기능, 또한 스크롤을 부드러운 애니메이션 추가.
+              pin: secondWorkRef.current, // 가로스크롤시 페이지를 고정할 수 있는 기능
+              markers:false
+            } 
+            }
+          )
+        },
+        "(max-width:1350px)":function(){
+          gsap.fromTo(contactRef.current,
+            {position:"fixed", left:"100%", top:0 },
+            {
+              translateX: -2500, // to 부분, 최종 상태
+            ease: "none", // 쓸데없는 애니메이션 없애는 부분
+            scrollTrigger: { // 스크롤 애니메이션 발생하는 부분
+              trigger: secondWorkRef.current, // 스크롤이 발생되는 요소 위치
+              start: "bottom bottom", // "요소위치 시작위치"
+              end: ()=> `+=2500`, // "요소위치 끝위치"
+              scrub: 0.7, // 되감기 기능, 또한 스크롤을 부드러운 애니메이션 추가.
+              pin: secondWorkRef.current, // 가로스크롤시 페이지를 고정할 수 있는 기능
+              markers:false
+            } 
+            }
+          )
+        }
+      })
+      window.addEventListener("resize", ScrollTrigger.update);
+      
+     
       return () => {
         pin.kill(); // 모든 애니메이션 중단
-        pin2.kill(); // 모든 애니메이션 중단
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        pin0.kill(); // 모든 애니메이션 중단 
+         
       };
     },[]);
     
@@ -115,17 +162,16 @@ export default function Home() {
               <div className="wrap_welcome"   ref={welcomeRef}  > 
                     <Welcome/>
               </div> 
-                  <About/>
-                  
-                  <Work />
-                  
+                  <About/> 
+                  <div ref={firstWorkRef}>
+                    <Work />
+                  </div> 
               </main> 
             </div>
-          </section>
-          
+          </section> 
       </div>
           <section  className="second_scroll" ref={secondRef} >
-            <div ref={workRef}>
+            <div ref={secondWorkRef}>
               <Work />
             </div>
             <div className="contact_box" ref={contactRef}>
