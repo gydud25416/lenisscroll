@@ -35,8 +35,8 @@ export default function Work(){
         
         <div id="work" className="wrap_work">
         <Title title={'Work'} />
-        {project.map((item)=>(
-            <section>
+        {project.map((item, idx)=>(
+            <section key={idx}>
                 <div className="img_section">
                     <p>0{item.id}</p>
                     <img src={item.img} alt="" />

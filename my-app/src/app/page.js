@@ -89,7 +89,7 @@ export default function Home() {
           end: ()=> `bottom+=${contactRef.current.offsetWidth}px bottom`, // "요소위치 끝위치"
           scrub: 0.7, // 되감기 기능, 또한 스크롤을 부드러운 애니메이션 추가.
           pin: workRef.current, // 가로스크롤시 페이지를 고정할 수 있는 기능
-          markers:true
+          markers:false
         } 
         }
       )
