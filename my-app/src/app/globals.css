@@ -203,7 +203,7 @@ background-color:#bbb;
 
 /* about/swiper */
 .swiper {
-  width: 65%; margin-top:30px;
+  width: 65%; margin-top:15px;
 }
 
 .swiper-slide {
@@ -273,9 +273,7 @@ background-color:#bbb;
 
 /* contact */
 .wrap_contact{width:1500px; min-height: 100vh; position:relative; padding:55px 0 55px 100px; }
-@media screen and (max-width:1350px) {
-    .wrap_contact{width:1300px;}
-}
+
 .wrap_contact .contact_flex{display: flex; height:100%; }
 .wrap_contact .contact_flex>div{ width:50%;   box-sizing: border-box;  }
 .wrap_contact .contact_flex .info{ display: flex; flex-direction: column; justify-content: space-between;}
@@ -296,6 +294,9 @@ background-color:#bbb;
 .second_scroll .contact_box{display: flex; background:#fff;}
 
  
-
+@media screen and (max-width:1351px) {
+    .wrap_contact{width:1300px;}
+    #main .wrap_about .contents ~ p{font-size: 18px;}
+}
 
 

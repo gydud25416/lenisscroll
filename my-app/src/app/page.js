@@ -96,7 +96,7 @@ export default function Home() {
             end: "+=1",
             onLeave: () => gsap.set(triggerRef.current, { display: "none" }),
             onEnterBack: () => gsap.set(triggerRef.current, { display: "block" }),
-            markers: true,
+            markers: false,
           },
         }
       );
