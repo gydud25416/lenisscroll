@@ -93,7 +93,7 @@ export default function Home() {
           scrollTrigger: {
             trigger: triggerRef.current,
             start: "top top",
-            end: "+=1",
+            end: "+=300",
             onLeave: () => gsap.set(triggerRef.current, { display: "none" }),
             onEnterBack: () => gsap.set(triggerRef.current, { display: "block" }),
             markers: false,

@@ -245,7 +245,7 @@ background-color:#bbb;
 
 /* work */
 #main .wrap_work, .wrap_work{width:calc(100vw - 8px);  box-sizing: border-box; position:relative;  z-index: 1; background:#fff;}
-#main .wrap_work {z-index: -1}
+/* #main .wrap_work {z-index: -1} */
 
 .wrap_work>section {display: flex; justify-content: space-between; padding:80px; }
 .wrap_work>section>div{width:48%;}
