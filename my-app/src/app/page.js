@@ -9,10 +9,12 @@ import lenis from "@/utils/lenis";
 import link from "@/utils/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";  
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import About from "@/components/About";
 import Welcome from "@/components/Welcome";
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin);
 
 export default function Home() { 
   
@@ -103,7 +105,7 @@ export default function Home() {
  
 
       ScrollTrigger.matchMedia({
-        "(min-width:1350px)":function(){
+        "(min-width:1550px)":function(){
           gsap.fromTo(contactRef.current,
             {position:"fixed", left:"100%", top:0 },
             {
@@ -120,7 +122,7 @@ export default function Home() {
             }
           )
         },
-        "(max-width:1350px)":function(){
+        "(max-width:1550px)":function(){
           gsap.fromTo(contactRef.current,
             {position:"fixed", left:"100%", top:0 },
             {
@@ -163,7 +165,7 @@ export default function Home() {
                     <Welcome/>
               </div> 
                   <About/> 
-                  <div ref={firstWorkRef}>
+                  <div  id="work" ref={firstWorkRef}>
                     <Work />
                   </div> 
               </main> 

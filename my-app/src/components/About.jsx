@@ -14,7 +14,7 @@ export default function About(){
     return(
         <>
         
-        <div className="wrap_about">
+        <div id='about' className="wrap_about">
         <Title title={'About'} />
             <section className="contents">
             <div className='swiper_about'>

@@ -1,6 +1,10 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import link from "@/utils/link";
 const Header = () => {
+    useEffect(() => {
+ 
+        link();
+    }, []);
     return (
         
             <div className="header_inner">
@@ -8,8 +12,8 @@ const Header = () => {
                 <div className="header_nav" role="navigation" aria-label="메인 메뉴">
                     <ul>
                         <li><a href="#about">About</a></li> 
-                        <li><a href="#skill">Skill</a></li> 
                         <li><a href="#work">Work</a></li>
+                        <li><a href="#skill">Skill</a></li> 
                         <li><a href="#contact">contact</a></li>
                     </ul>
                 </div>

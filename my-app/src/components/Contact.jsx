@@ -4,7 +4,7 @@ import Title from "./Title";
 export default function Contact(){
 
     return(
-        <div className="wrap_contact">
+        <div id="contact" className="wrap_contact">
             <Title title={'Contact'} />
             <div className="contact_flex">
                 <div className="info">

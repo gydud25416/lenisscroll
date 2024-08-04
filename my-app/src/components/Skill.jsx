@@ -67,7 +67,7 @@ const skillSet = [
 export default function Skill(){
 
     return(
-        <div className="wrap_skill">
+        <div id="skill" className="wrap_skill">
             <Title title={'Skill'} />
             <div className="skills">
                 <ul>

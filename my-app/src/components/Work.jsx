@@ -33,7 +33,7 @@ export default function Work(){
     return(
         <>
         
-        <div id="work" className="wrap_work">
+        <div className="wrap_work">
         <Title title={'Work'} />
         {project.map((item, idx)=>(
             <section key={idx}>

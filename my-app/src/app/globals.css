@@ -152,7 +152,7 @@ background-color:#bbb;
 
 /* 헤더 */
 #header{position:fixed; bottom:-70px;  left:-70px;  width:100vh;  transform-origin: top left;  transform:rotate(-90deg);  z-index: 9999; border-bottom:solid 1px #333; background: #fff; } 
-.wrap_header{position:absolute; width:100vh; bottom:-70px;left:115vh; transition:0.5s; transform-origin: top left;  transform:rotate(-90deg);  border-bottom:solid 1px #333;   } 
+.wrap_header{position:absolute; z-index: 9999; width:100vh; bottom:-70px;left:115vh; transition:0.5s; transform-origin: top left;  transform:rotate(-90deg);  border-bottom:solid 1px #333;   } 
 
 .header_inner{position:relative; display: flex; height:70px; max-width: 95%; margin:0 auto;   justify-content: space-between;   align-items: flex-end; padding-bottom:8px; }
 .header_inner .header_logo{position:absolute; left:50%;}
