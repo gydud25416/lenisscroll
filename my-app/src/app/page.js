@@ -60,6 +60,11 @@ export default function Home() {
           }
         }
       );
+      ScrollTrigger.matchMedia({ 
+        "(max-width:1024px)": function() {
+            ScrollTrigger.getAll().forEach(st => st.kill()); // 모든 ScrollTrigger를 비활성화
+          }
+      })
       return ()=>{
         pin4.kill();
       }
@@ -138,7 +143,11 @@ export default function Home() {
             } 
             }
           )
-        }
+        },
+
+        "(max-width:1024px)": function() {
+            ScrollTrigger.getAll().forEach(st => st.kill()); // 모든 ScrollTrigger를 비활성화
+          }
       })
       window.addEventListener("resize", ScrollTrigger.update);
       
@@ -148,8 +157,23 @@ export default function Home() {
         pin0.kill(); // 모든 애니메이션 중단 
          
       };
-    },[]);
-    
+    },[]); 
+
+    useEffect(() => {
+      const handleResize = () => {
+        const currentWidth = window.innerWidth; 
+        if (currentWidth <= 1350) {
+          window.location.reload();
+        }
+      };
+  
+      window.addEventListener('resize', handleResize);
+  
+      // Cleanup function to remove event listener on component unmount
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
 
   return (
     <>

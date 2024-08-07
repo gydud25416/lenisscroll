@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import Title from "./Title";
 
@@ -77,7 +78,8 @@ export default function Skill(){
                         <div className="img">
                             <img src={`skill${item.id}.png`} alt={item.skill} />
                         </div>
-                        <div className="cursor">⬅️ Skill에 마우스를 올려보세요! 🖱️</div>
+                        <div  className="cursor pc-view">{ item.id === 1 ? "⬅️ Skill에 마우스를 올려보세요! 🖱️" : "  " }</div>
+                        <div className="cursor mo-view">{ item.id === 1 ? "⬅️ TOUCH! ❣️" : "  " }</div>
                     </li>
                     ))} 
                 </ul>

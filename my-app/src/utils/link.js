@@ -32,8 +32,7 @@ const link = () => {
                 if(targetId === "#contact"){ 
                     OnScroll(9540);
                 }
-            }else{ 
-                console.log("이하")
+            }else{  
                 if(targetId === "#skill"){ 
                     OnScroll(7890);
                 }
