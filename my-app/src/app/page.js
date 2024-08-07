@@ -162,7 +162,7 @@ export default function Home() {
     useEffect(() => {
       const handleResize = () => {
         const currentWidth = window.innerWidth; 
-        if (currentWidth <= 1350) {
+        if (currentWidth >= 1024 && currentWidth <= 1074) {
           window.location.reload();
         }
       };
