@@ -15,7 +15,7 @@ const project=[
         img:"./work1.jpg",
         title:"가계부 앱💸",
         github:"https://github.com/gydud25416/Study_ReactJS/tree/master/acount_book",
-        view:"https://accountbook-hyjang.web.app/",
+        view:"https://accountbook-hy.web.app/",
         text:`총 자산을 알 수 있는 저만의 가계부 앱을 제작하였습니다.☺️<br/>REST-API 호출 구현을 위해 Fetch 메서드를  사용했습니다.<br/>내역을 한눈에 볼 수 있도록 수입·지출 그래프와 총 자산이 실시간으로  변동함으로써 사용자 경험을 향상시켰습니다.<br/>입출금 내역은 년도별, 실시간 검색, 입·출금 카테고리로 다양하게 필터링 할 수 있어 원하는 정보를 얻을 수 있게 하였습니다.<br/>데이터는 가상의 JSON-SERVER에 저장되며, 접속시 1분 이내의 로딩이 필요합니다.`
     },
     {
